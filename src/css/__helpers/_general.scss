@@ -1,0 +1,76 @@
+//
+// ----------------------------------------
+// GENERAL
+//
+// The most general styles for
+// <html>, <body> and .container
+//
+
+body {
+	font-family: $font-base;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+	color: $color--black;
+	-webkit-overflow-scrolling: touch;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 28px;
+
+	@include media('>=xl') { 
+		padding: 0;
+		width: 1178px; 
+	}
+
+	&__no-width {
+		@include media('>=xl') {
+			padding: 0 28px; 
+			width: 100%;
+		}
+	}
+
+	&--project-single {
+		padding: 0 15px;
+
+		@include media('>=xs') { 
+			padding: 0 28px;
+		}
+
+		@include media('>=sm') { 
+			width: 576px;
+		}
+
+		@include media('>=md') { 
+			width: 768px;
+		}
+
+		@include media('>=lg') { 
+			width: 992px;
+		}
+	}
+}
+
+.modal-opened {
+	overflow: hidden;
+}
+
+// ISOTOPE TRANSITIONS
+
+.projects-grid__container {
+  -webkit-transition-duration: .4s;
+	 -moz-transition-duration: .4s;
+	  -ms-transition-duration: .4s;
+	   -o-transition-duration: .4s;
+	      transition-duration: .4s;
+}
+
+.projects-grid__container .projects-grid__item {
+  -webkit-transition-timing-function: ease-out;
+     -moz-transition-timing-function: ease-out;
+      -ms-transition-timing-function: ease-out;
+       -o-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+}

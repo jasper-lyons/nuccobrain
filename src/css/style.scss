@@ -1,0 +1,44 @@
+@charset 'utf-8';
+
+// ----------------------------------------
+//         STYLES COMPILED WITH SASS
+//      Naming conceptions of the files:
+//            BEM CSS METHODOLOGY:
+//            http://en.bem.info/
+// ----------------------------------------
+//
+// @devs:
+// 		Please keep current comments convention
+// 		/* CSS comments */ only for clients
+//
+
+// -------------------------------- Vendors
+@import '__vendors/normalize';
+@import '__vendors/include-media';
+@import '__vendors/flickity';
+
+// -------------------------------- Helpers
+@import '__helpers/fonts';
+@import '__helpers/colors';
+@import '__helpers/mixins';
+@import '__helpers/reset';
+@import '__helpers/breakpoints';
+@import '__helpers/general';
+@import '__helpers/typography';
+
+// ----------------------------- Components
+@import '__components/btn';
+@import '__components/section';
+@import '__components/header';
+@import '__components/hero';
+@import '__components/projects';
+@import '__components/contact';
+@import '__components/partners';
+@import '__components/blog';
+@import '__components/footer';
+@import '__components/project-single';
+@import '__components/hero-static';
+@import '__components/testimonials';
+@import '__components/categories';
+@import '__components/grid';
+@import '__components/modal';

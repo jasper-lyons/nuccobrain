@@ -1,0 +1,24 @@
+{
+  "paths": {
+    "source": "src",
+    "public": "web",
+    "thirdParty": "third-party",
+    "devTools": "dev",
+    "reports": "reports"
+  },
+
+  "project": {
+    "type": "markup",
+    "sources": true
+  },
+
+  "components": {
+    "webpack": true,
+    "hotLoader": false
+  },
+
+  "wordpress": {
+    "dump": "remote",
+    "adminBrowsersync": false
+  }
+}

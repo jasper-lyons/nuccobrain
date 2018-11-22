@@ -1,0 +1,147 @@
+.project {
+	position: relative;
+	width: 100%;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+
+	@include media('>=md') {
+		width: 33.33%;
+		margin: 0 7px;
+		height: 300px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	@include media('>=xl') {
+		height: 500px;
+	}
+
+	&__background {
+		width: calc(100% - 56px);
+		height: 0;
+		padding-bottom: 73%;
+		margin: 0 auto;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+
+		@include media('>=xs') {
+			padding-bottom: 49%;
+		}
+
+		@include media('>=sm') {
+			width: 70vw;
+			padding-bottom: 39%;
+		}
+
+		@include media('>=md') {
+			width: 100%;
+			height: auto;
+			padding-bottom: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+
+	&__container {
+		position: relative;
+		padding: 18px 0 38px;
+		z-index: 2;
+
+		@include media('>=md') {
+			// padding: 65px 0 56px;
+			opacity: 0;
+			transition: .2s ease-out;
+		}
+	}
+
+	&:before {
+		display: none;
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		transition: .2s ease-out;
+		z-index: 1;
+
+		@include media('>=md') {
+			display: block;
+		}
+	}
+
+	&:hover {	
+		.project__container {
+			opacity: 1;
+		}
+	}
+
+	&:hover::before {
+		background-color: rgba(74, 186, 185, .8);
+	}
+
+	&:nth-child(1) .project__background {
+		background-position: 30% 82%;
+
+		@include media('>=md') {
+			background-position: center 82%;
+		}
+	}
+
+	&:nth-child(2) .project__background {
+		background-position: 30% 39%;
+		background-size: 255%;
+
+		@include media('>=md') {
+			background-position: 32% 45%; 
+			// background-size: 115%;
+			background-size: cover;
+		}
+	}
+
+	&:nth-child(3) .project__background {
+		background-position: 65% 96%; 
+		background-size: 250%;
+
+		@include media('>=md') {
+			background-position: center 75%; 
+			// background-size: 102%;
+			background-size: cover;
+		}
+	}
+	&.hover-item{
+		&::before{
+			background-color: rgba(74, 186, 185, .8);
+		}
+		.project__container {
+			opacity: 1;
+		}
+	}
+}
+
+.projects {
+	position: relative;
+
+	@include media('>=md') {
+		display: flex;
+		padding: 0 7px;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: -4px;
+		left: 28px;
+		right: 28px;
+		border-top: 1px solid #282828;
+
+		@include media('>=md') {
+			display: none;
+		}
+	}
+}

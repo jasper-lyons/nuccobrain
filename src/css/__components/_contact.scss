@@ -1,0 +1,18 @@
+.contact {
+	color: #000;
+
+	@include media('>=md') {
+		border-top: none;
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		@include media('>=md') {
+			flex-direction: row;
+		}
+	}
+}

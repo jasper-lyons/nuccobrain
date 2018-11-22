@@ -1,0 +1,277 @@
+.section {
+	padding: 30px 0;
+	text-align: center;
+
+	@include media('>=md') {
+		padding: 70px 0;
+	}
+
+	&__logo {
+		margin: 0 auto 21px;
+		max-width: 74px;
+
+		@include media('>=md') {
+			margin: 0 auto 34px;
+			max-width: 122px;
+			line-height: normal;
+		}
+
+		&--contact {
+			margin: 0 auto 32px;
+			max-width: 98px;
+
+			@include media('>=md') {
+				margin: 0 auto 31px;
+				max-width: 124px;
+			}
+		}
+
+		&--blog {
+			margin: 0 auto 22px;
+			max-width: 120px;
+
+			@include media('>=md') {
+				margin: 0 auto 40px;
+				max-width: 176px;
+			}
+		}
+	}
+
+	&__title {
+		margin-bottom: 32px;
+		text-transform: uppercase;
+		letter-spacing: 1.8px;
+		line-height: 31px;
+
+		@include media('>=md') {
+			margin-bottom: 40px;
+			line-height: normal;
+		}
+
+		&--white {
+			color: $color--white;
+		}
+
+		&--main {
+			margin-left: auto;
+			margin-right: auto;
+			// margin-bottom: 40px;
+			// max-width: 76%;
+			text-align: center;
+			line-height: 40px;
+
+			@include media('>=md') {
+				// margin-bottom: 40px;
+				// margin-top: 108px;
+				line-height: normal;
+			}
+
+			// @include media('>xl') {
+				// margin-bottom: 64px;
+			// }
+		}
+
+		&--contact {
+			margin-bottom: 18px;
+
+			@include media('>=md') {
+				margin-bottom: 37px;
+			}
+		}
+
+		&--projects {
+			margin-bottom: 11px;
+			font-size: 20px;
+			color: #000000;
+
+			@include media('>=md') {
+				margin-bottom: 20px;
+				font-size: 24px;
+				color: #ffffff;
+			}
+
+			@include media('>=lg') {
+				margin-bottom: 32px;
+				font-size: 28px;
+			}
+
+			@include media('>=xl') {
+				font-size: 32px;
+			}
+		}
+
+		&--blog {
+			margin: 0 40px 24px;
+			font-family: $font-base;
+			font-weight: 600;
+			letter-spacing: 3px;
+			line-height: 23px;
+
+			@include media('>=md') {
+				line-height: normal;
+				margin: 0 auto 60px;	
+			}
+		}
+
+		&--partners {
+			margin-bottom: 20px;
+
+			@include media('>=md') {
+				margin-bottom: 37px;	
+			}
+		}
+
+		&--categories {
+			margin-bottom: 20px;
+
+			@include media('>=md') {
+				margin-bottom: 48px;	
+			}
+		}
+
+		&--grid {
+			font-size: 20px;
+			margin-bottom: 5px;
+			max-width: 100%;
+
+			@include media('>=sm') {
+				font-size: 24px;
+				margin-bottom: 12px;
+				color: $color--white;
+			}
+			@include media('>=md') {
+				margin-bottom: 20px;
+				font-size: 28px;
+				line-height: 36px;
+			}
+			
+			@include media('>=xl') {
+				font-size: 32px;
+			}
+		}
+	}
+
+	&__text {
+		margin: 0 auto 40px;
+		max-width: 667px;
+		line-height: 17px;
+
+		@include media('>=md') {
+			line-height: inherit;
+		}
+
+		&--white {
+			color: $color--white;
+		}
+
+		&--contact {
+			margin: 0 30px 35px;
+
+			@include media('>=md') {
+				margin: 0 auto 31px;
+			}
+		}
+
+		&--projects {
+			margin-bottom: 30px;
+			color: #220f0f;
+
+			@include media('>=md') {
+				margin-bottom: 22px;			
+				color: #ffffff;
+			}
+
+			@include media('>=lg') {
+				margin-bottom: 32px;
+			}
+		}
+
+		&--partners {
+			margin: 0 40px 40px;
+
+			@include media('>=md') {
+				margin: 0 auto 40px;
+			}
+		}
+
+		&--grid {
+			max-width: 100%;
+			margin-bottom: -3px;
+
+			@include media('>=sm') {
+				margin-bottom: 0;
+				color: $color--white;
+			}
+		}
+	}
+
+	&--no-padding {
+		padding: 0;
+
+		@include media('>=md') {
+			padding: 0;
+		}
+	}
+
+	&--intro {
+		padding: 33px 0 20px;
+
+		@include media('>=md') {
+			padding: 78px 0 30px;
+		}
+	}
+
+	&--contact {
+		padding: 45px 0 23px;
+
+		@include media('>=md') {
+			padding: 70px 0 59px;
+		}
+	}
+
+	&--partners {
+		padding: 45px 0 18px;
+
+		@include media('>=md') {
+			padding: 64px 0 38px;	
+		}
+	}
+
+	&--blog {
+		padding: 46px 0;
+
+		@include media('>=md') {
+			padding: 78px 0;
+		}
+	}
+
+	&--project-single {
+		padding: 30px 0 0;
+
+		@include media('>=xs') {
+			padding: 45px 0 0;
+		}
+
+		@include media('>=md') {
+			padding: 70px 0 0;
+		}
+	}
+
+	&--categories {
+		padding: 106px 0 10px;
+		margin-bottom: 34px;
+
+		@include media('>=md') {
+			padding: 112px 0 84px;
+			margin-bottom: 54px;
+		}
+	}
+
+	&--error {
+		padding: 50px 0 0;
+
+		@include media('>=md') {
+			padding: 70px 0 0;
+		}
+	}
+}

@@ -1,0 +1,90 @@
+.testimonials {
+	max-width: 100%;
+	overflow: hidden;
+
+	.testimonial {
+		position: relative;
+		padding: 70px 20px 80px;
+		width: 100%;
+		min-height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: rgba(0, 0, 0, .25);
+		}
+
+		@include media('>=md') {
+			padding: 70px 0 66px;
+		}
+
+		&__container {
+			position: relative;
+			height: 100%;
+		}
+
+		&__content {
+			max-width: 667px;
+			margin: 0 auto;
+		}
+
+		&__text {
+			font-size: 21px;
+			line-height: 26px;
+			margin-bottom: 24px;
+
+			@include media('>=md') {
+				font-size: 24px;
+				line-height: 28px;
+				margin-bottom: 24px;
+			}
+		}
+
+		&__author {
+			font-weight: 600;
+			margin-bottom: 5px;
+		}
+	}
+
+	.flickity-button {
+		display: none;
+		background: none;
+
+		svg {
+			fill: #48b8b7;
+		}
+		
+		@include media('>=md') {
+			display: inherit;
+			width: 90px;
+			height: 80px;
+		}
+
+		&.previous {
+			left: -16px;
+
+			@include media('>=lg') {
+				left: 10px;
+			}
+		}
+
+		&.next {
+			right: -16px;
+
+			@include media('>=lg') {
+				right: 10px;
+			}
+		}
+	}
+}

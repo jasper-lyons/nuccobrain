@@ -1,0 +1,46 @@
+.partners {
+	background-color: #282828;
+
+	&__grid {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+
+		@include media('>=md') {
+			justify-content: flex-start;
+		}
+	}
+
+	&__grid-item {
+		position: relative;
+		margin-bottom: 40px;
+		width: 50%;
+		transform: scale(.85);
+
+		@include media('>=xs') {
+			transform: scale(.92);			
+		}
+
+		@include media('>=sm') {			
+			transform: none;
+			margin-bottom: 43px;
+		}
+
+		@include media('>=md') {
+			width: 33.33%;
+		}
+
+		@include media('>=lg') {
+			width: 25%;
+		}
+
+		@include media('>=xl') {
+			width: 20%;
+		}
+
+		img {
+			max-width: 100%;
+		}
+	}
+}

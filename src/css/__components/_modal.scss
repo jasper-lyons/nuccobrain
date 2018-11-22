@@ -1,0 +1,146 @@
+.modal-popup {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, .8);
+
+	&--video {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: auto;
+		padding-top: 80px;
+	}
+
+	&__preloader {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__content {
+		display: none;
+		position: relative;
+		width: calc(100% - 12px);
+		margin: 6px;
+		padding: 0;
+		background-color: #ffffff;
+		box-shadow: 0 5px 8px 0 rgba(0, 0, 0, .2);
+		max-width: 1178px;
+
+		&--visible {
+			display: block;
+			background-color: transparent;
+			box-shadow: none;
+			position: relative;
+			padding: 80px 0 0;
+			
+			@include media('>=xl') {
+				max-width: 900px;
+			}
+
+			.modal-popup__close-btn {
+				float: none;
+				position: absolute;
+				top: 0;
+				right: -10px;
+				margin: 0 !important;
+				background: none;			
+
+				@include media('>=sm') {
+					top: 0;
+					font-size: 22px;
+					width: 40px;
+					height: 40px;
+				}
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+
+		.iframe-wrapper {
+			padding: 0;
+			width: 100%;
+			height: 0;
+			padding-bottom: 56.27198%;
+
+			iframe {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+		
+		@include media('>=sm') {
+			margin: 40px auto;
+			width: 90%;
+		}
+		
+		@include media('>=md') {
+			width: 80%;
+		}
+
+		.project-single {
+			padding: 52px 15px;
+
+			@include media('>=sm') {
+				padding: 70px 30px;
+			}
+			
+			@include media('>=xl') {
+				padding: 80px 40px;
+			}
+		}
+	}
+
+	&__close-btn {
+		z-index: 2;
+		position: -webkit-sticky;
+		position: sticky;
+		top: 10px;
+		float: right;
+		margin: 6px 19px 0 0;
+		padding-top: 4px;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		line-height: 0;
+		font-size: 22px;
+		color: #ccc;
+		background-color: rgba(255, 255, 255, .95);
+		cursor: pointer;
+		text-decoration: none;
+
+		@include media('>=xs') {
+			font-size: 22px;
+		}
+
+		@include media('>=sm') {
+			width: 50px;
+			height: 50px;
+			margin: 12px 34px 0 0;
+			padding-top: 5px;
+			font-size: 26px;	
+		}
+
+		@include media('>=xl') {
+			top: 15px;
+			margin: 18px 44px 0 0;
+		}
+
+		&:hover {
+			color: #000;
+		}
+	}
+}
