@@ -46,14 +46,15 @@
             width: 250px;
             text-align: center;
         }
-    }
 
-    &:nth-of-type(even) {
-        .insight__text-holder{
-            order: -1;
-            text-align: right;
+        &:nth-of-type(even) {
+            .insight__text-holder{
+                order: -1;
+                text-align: right;
+            }
         }
     }
+
 
 }
 
