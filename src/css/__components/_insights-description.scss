@@ -1,0 +1,59 @@
+.insight {
+    border-bottom: 1px solid #282828;
+    text-align: center;
+    padding: 30px;
+
+    img {
+        width: 200px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-family: "Josefin", sans-serif;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    p {
+        line-height: 23px;
+        margin-bottom: 20px
+    }
+
+    @include media('>=md') {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        padding: 80px;
+
+        .insight__image-holder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            margin: 0px;
+        }
+
+        aside{
+            flex: 1;
+            max-width: 500px;
+        }
+
+        img {
+            width: 250px;
+            text-align: center;
+        }
+    }
+
+    &:nth-of-type(even) {
+        .insight__text-holder{
+            order: -1;
+            text-align: right;
+        }
+    }
+
+}
+
