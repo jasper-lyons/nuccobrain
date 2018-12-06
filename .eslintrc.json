@@ -8,7 +8,7 @@
   "settings": {
       "ecmascript": 6,
       "jsx": true
-//   },
+  },
   "parserOptions": {
       "ecmaVersion": 2017,
       "ecmaFeatures": {
