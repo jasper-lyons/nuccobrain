@@ -11,6 +11,7 @@ import equalHeightCat from './__modules/equalHeightCat';
 import adjustments from './__modules/adjustments';
 import openVideoModal from './__modules/openVideoModal';
 import showItemsInit from './__modules/tabletInview';
+import startAnimations from './__modules/animations';
 
 heroSection();
 
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	equalHeightCat();
 	adjustments();
 	showItemsInit();
+	startAnimations();
 });
 
 window.addEventListener('load', () => {
