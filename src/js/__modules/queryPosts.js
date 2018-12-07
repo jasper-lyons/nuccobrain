@@ -47,11 +47,11 @@ const queryPosts = () => {
 	};
 
 	const getPosts = () => $.ajax({
-		url: 'http://nuccobrain.com/blog/wp-json/wp/v2/posts?_embed&per_page=3',
+		url: 'https://nuccobrain.com/blog/wp-json/wp/v2/posts?_embed&per_page=3',
 	});
 
 	const getCategories = () => $.ajax({
-		url: 'http://nuccobrain.com/blog/wp-json/wp/v2/categories',
+		url: 'https://nuccobrain.com/blog/wp-json/wp/v2/categories',
 	});
 
 	const getPostsAndCategories = () => {
