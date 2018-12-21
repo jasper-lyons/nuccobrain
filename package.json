@@ -10,10 +10,11 @@
     }
   ],
   "devDependencies": {
+    "@babel/core": "^7.2.2",
     "ansi-colors": "^2.0.1",
     "archiver": "^2.1.1",
     "autoprefixer": "^8.5.0",
-    "babel-core": "^7.0.0-0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-es2015-spread": "^6.22.0",
@@ -72,11 +73,11 @@
     "webpack-hot-middleware": "^2.22.2"
   },
   "scripts": {
-    "build": "gulp deploy --production",
+    "build": "gulp deploy --production & netlify-lambda build src/functions",
     "filepack": "gulp filepack",
     "webpack": "webpack",
     "webpack-prod": "webpack -p --optimize-minimize",
-    "start": "gulp"
+    "start": "gulp & netlify-lambda build src/functions"
   },
   "dependencies": {
     "flickity": "^2.1.2",

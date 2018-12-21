@@ -1,6 +1,24 @@
-# How to setup this project
+## How to setup this project
 
-1) Install necessary dependencies with `yarn install` or `npm install`
-2) Run project with `yarn run start` or `npm run start`
+1. Install necessary dependencies with `npm install`
+2. Compile code, watch for changes and start a dev server with `npm start`
 
-If you want to build all project files and copy them to production server, use `yarn run build` or `npm run build` and copy `web/` folder content.
+If you want to build all project files and copy them to production server, use `npm run build` and copy contents of `/web` to the server.
+
+Serverless function code will also be built to the `/functions` folder.
+
+## Serverless functions
+
+This project uses Netlify serverless cloud functions to proxy API requests to third party services like Eventbrite.
+
+Doing it this way lets us:
+
+* Keep API keys secret from the client
+* Get around the browser same-origin policy
+* Present smaller, simpler responses to the client
+
+Function source code is in `/src/functions` and the built code is in `/functions`.
+
+Unlike for the front-end code, the built function code _is_ checked into the repo.
+
+The functions can be rebuilt separately by running `netlify-lambda build src/functions` instead of `npm run build`.
