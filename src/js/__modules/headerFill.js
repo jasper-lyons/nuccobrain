@@ -8,6 +8,9 @@ const headerFill = () => {
 	// Bind events
 	if (!body.hasClass('header-static')) {
 		$(document).on('scroll', () => {
+
+
+
 			if ($(window).scrollTop() === 0) {
 				header.removeClass('page-scrolled');
 			} else {
