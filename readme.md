@@ -19,6 +19,6 @@ Doing it this way lets us:
 
 Function source code is in `/src/functions` and the built code is in `/functions`.
 
-Unlike for the front-end code, the built function code _is_ checked into the repo.
+Unlike for the front-end code, the built function code _is_ checked into the repo and normal start/build commands don't affect it.
 
-The functions can be rebuilt separately by running `netlify-lambda build src/functions` instead of `npm run build`.
+The functions can be rebuilt by running `netlify-lambda build src/functions`.

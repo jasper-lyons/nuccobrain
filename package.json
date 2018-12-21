@@ -73,11 +73,11 @@
     "webpack-hot-middleware": "^2.22.2"
   },
   "scripts": {
-    "build": "gulp deploy --production & netlify-lambda build src/functions",
+    "build": "gulp deploy --production",
     "filepack": "gulp filepack",
     "webpack": "webpack",
     "webpack-prod": "webpack -p --optimize-minimize",
-    "start": "gulp & netlify-lambda build src/functions"
+    "start": "gulp"
   },
   "dependencies": {
     "flickity": "^2.1.2",
