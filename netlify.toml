@@ -1,7 +1,9 @@
+# Location of dist functions
 [build]
   functions = "/functions"
 
+# Enable CORS
 [[headers]]
   for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
+    [headers.values]
+      Access-Control-Allow-Origin = "*"
