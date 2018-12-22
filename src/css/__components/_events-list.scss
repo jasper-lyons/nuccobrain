@@ -1,8 +1,8 @@
 .event-info, .events-error{
     text-align: center;
-    font-weight: light;
+    font-weight: 100;
     margin: 30px;
-    font-size: 1.1em;
+    font-size: 1.3em;
 
     a{
         font-weight: bold;
@@ -49,17 +49,17 @@
         text-transform: uppercase;
         text-align: center;
         .event__date{
-            font-size: 2.5em;
+            font-size: 30px;
             margin-bottom: 5px
         }
         .event__month{
-            font-size: 1.6em
+            font-size: 22px
         }
     }
 
     .event__name{
         text-transform: uppercase;
-        font-size: 1.6em;
+        font-size: 28px;
         text-align: left;
         flex: 1;
     }
@@ -72,7 +72,8 @@
     }
 
     .event__description{
-        margin-bottom: 20px
+        margin-bottom: 20px;
+        line-height: 1.15;
     }
 
 
@@ -82,15 +83,14 @@
         padding: 80px 30px;
 
         .event__image-holder{
-            width: 30%;
-            flex: 0.5;
+            flex: 1;
             padding: 20px;
             margin-bottom: 0px;
         }
 
         .event__text-holder{
-            width: 70%;
-            flex: 2;
+            max-width: 500px;
+            // flex: 1;
             text-align: left;
             padding: 20px;
             margin-bottom: 0px;
@@ -101,12 +101,16 @@
             margin-bottom: 30px;
         }
 
+        .event__time, .event__description{
+            margin-bottom: 25px
+        }
+
         a {
             margin: 0px;
         }
 
         .event__name{
-            font-size: 2.2em
+            font-size: 28px
         }
 
         .event__image{

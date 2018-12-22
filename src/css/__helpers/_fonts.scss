@@ -7,6 +7,13 @@ $font-base: 'Josefin', sans-serif;
 $font-sec: 'Oswald', sans-serif;
 
 @font-face {
+	font-weight: 100;
+	font-style: normal;
+	font-family: 'Josefin';
+	src: url("../fonts/JosefinSans-Light.ttf") format('truetype');
+}
+
+@font-face {
 	font-weight: 400;
 	font-style: normal;
 	font-family: 'Josefin';
