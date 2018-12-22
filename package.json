@@ -77,7 +77,7 @@
     "filepack": "gulp filepack",
     "webpack": "webpack",
     "webpack-prod": "webpack -p --optimize-minimize",
-    "start": "gulp"
+    "dev": "gulp"
   },
   "dependencies": {
     "flickity": "^2.1.2",

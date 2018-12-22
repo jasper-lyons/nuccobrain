@@ -1,11 +1,11 @@
 ## How to setup this project
 
 1. Install necessary dependencies with `npm install`
-2. Compile code, watch for changes and start a dev server with `npm start`
+2. Compile code, watch for changes and start a dev server with `npm run dev`
 
 If you want to build all project files and copy them to production server, use `npm run build` and copy contents of `/web` to the server.
 
-Serverless function code will also be built to the `/functions` folder.
+Serverless function code gets built to the `/functions` folder instead—see below.
 
 ## Serverless functions
 

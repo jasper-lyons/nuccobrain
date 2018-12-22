@@ -22,8 +22,7 @@ const processEvents = (json) => {
                 image: (rawEvent.logo) ? rawEvent.logo.original.url : null,
                 description: rawEvent.description.text.split(".")[0] + ".",
                 url: rawEvent.url,
-                date: startDate.format('D'),
-                month: startDate.format('MMM'),
+                date: startDate.format('Mo MMM'),
                 startTime: startDate.format('ha'),
                 endTime: endDate.format('ha')
             })
@@ -47,16 +46,9 @@ const displayEvents = (processedEvents) => {
                 ${(event.image)? `<img class="event__image" alt="${event.name}" src="${event.image}"/>` : `` }
             </aside>
             <aside class="event__text-holder">
-
-                <div class="event__date-title-holder">
-                    <div class="event__date-holder">
-                        <p class="event__date">${event.date}</p>
-                        <p class="event__month">${event.month}</p>
-                    </div>
-                    <h2 class="event__name">${event.name}</h2>
-                </div>
-
-                <p class="event__time">${event.startTime} - ${event.endTime}</p>
+                <h2 class="event__name">${event.name}</h2>
+                <p class="event__date">${event.date}</p>
+                <p class="event__time">${event.startTime}-${event.endTime}</p>
                 <p class="event__description">${event.description}</p>
                 <a class="btn btn--insights btn--padding" target="blank" href="${event.url}">Sign up here</a>
             </aside>
