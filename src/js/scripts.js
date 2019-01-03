@@ -1,3 +1,5 @@
+import "@babel/polyfill";
+
 import heroSection from './__modules/heroSection';
 import mobileMenu from './__modules/mobileMenu';
 import headerFill from './__modules/headerFill';
