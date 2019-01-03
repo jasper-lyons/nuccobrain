@@ -12,6 +12,7 @@ export default () => {
 
 const processEvents = (json) => {
     try {
+        console.log(json)
         // New empty array to store processed results
         let processedEvents = []
         json.map((rawEvent)=>{
@@ -20,9 +21,9 @@ const processEvents = (json) => {
             processedEvents.push({
                 name: rawEvent.name.text,
                 image: (rawEvent.logo) ? rawEvent.logo.original.url : null,
-                description: rawEvent.description.text.split(".")[0] + ".",
+                description: (rawEvent.description.text) ? rawEvent.description.text.split(".")[0] + "." : "",
                 url: rawEvent.url,
-                date: startDate.format('Mo MMM'),
+                date: startDate.format('Do MMM'),
                 startTime: startDate.format('ha'),
                 endTime: endDate.format('ha')
             })
