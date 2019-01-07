@@ -29,14 +29,13 @@ const startAnimations = () => {
     const bulb = initAnimation('corporate-comms-animation', 'Lightbulb_animation.json', false, false)
     const globe = initAnimation('educational-content-animation', 'Globe_animation.json', false, false)
     
-    setInterval(()=>{
+    setTimeout(()=>{
         eye.play();
     }, 1000)
-    setInterval(()=>{
+    setTimeout(()=>{
         bulb.play();
     }, 3000)
-
-    setInterval(()=>{
+    setTimeout(()=>{
         globe.play();
     }, 7000)
 
