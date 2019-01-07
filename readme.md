@@ -1,11 +1,21 @@
-## How to setup this project
+# Nuccobrain
+
+A bespoke static site, built using a suite of gulp tasks.
+
+## Developing locally
 
 1. Install necessary dependencies with `npm install`
 2. Compile code, watch for changes and start a dev server with `npm run dev`
+3. Commit changes to the `staging` branch of this repo.
 
-If you want to build all project files and copy them to production server, use `npm run build` and copy contents of `/web` to the server.
+## Deploying
+
+Changes to the staging branch will automatically be built and deployed to a Netlify staging site: http://nuccobrain-staging.netlify.com.
+
+Changes to the master branch will be built and deployed to https://nuccobrain.com on request—not automatically.
 
 Serverless function code gets built to the `/functions` folder instead—see below.
+
 
 ## Serverless functions
 
@@ -22,3 +32,5 @@ Function source code is in `/src/functions` and the built code is in `/functions
 Unlike for the front-end code, the built function code _is_ checked into the repo and normal start/build commands don't affect it.
 
 The functions can be rebuilt by running `netlify-lambda build src/functions`.
+
+The built function code is committed to the repo.
