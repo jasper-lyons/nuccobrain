@@ -16,7 +16,6 @@ Changes to the master branch will be built and deployed to https://nuccobrain.co
 
 Serverless function code gets built to the `/functions` folder instead—see below.
 
-
 ## Serverless functions
 
 This project uses Netlify serverless cloud functions to proxy API requests to third party services like Eventbrite.
@@ -34,3 +33,9 @@ Unlike for the front-end code, the built function code _is_ checked into the rep
 The functions can be rebuilt by running `netlify-lambda build src/functions`.
 
 The built function code is committed to the repo.
+
+### Important note
+
+Functions only live on the Netlify staging site at the moment, because the production server is not hosted on Netlify.
+
+This means that both the production and staging sites make requests to a function at a staging URL. This isn't ideal but it is stable.
