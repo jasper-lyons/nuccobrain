@@ -1,15 +1,17 @@
 import bodymovin from 'lottie-web';
 
-const initAnimation = (id, filename) => {
+const initAnimation = (id, filename, autoplay = true, loop = true) => {
     if(document.getElementById(id)){
-        bodymovin.loadAnimation({
+        return bodymovin.loadAnimation({
             container: document.getElementById(id),
             path: `/assets/animations/${filename}`,
             name: id,
             renderer: 'svg',
-            loop: true,
-            autoplay: true
+            loop: loop,
+            autoplay: autoplay
         })
+    } else {
+        return null
     }
 }
 
@@ -20,10 +22,24 @@ const startAnimations = () => {
     initAnimation('sector-challenges-animation', 'bullseye_animation.json')
     // Contact us icon
     initAnimation('talk-animation', 'Talk_animation.json')
+
+
     // Work page
-    initAnimation('brand-storytelling-animation', 'Eye_animation.json')
-    initAnimation('corporate-comms-animation', 'Lightbulb_animation.json')
-    initAnimation('educational-content-animation', 'Globe_animation.json')
+    const eye = initAnimation('brand-storytelling-animation', 'Eye_animation.json', false, false)
+    const bulb = initAnimation('corporate-comms-animation', 'Lightbulb_animation.json', false, false)
+    const globe = initAnimation('educational-content-animation', 'Globe_animation.json', false, false)
+    
+    setTimeout(()=>{
+        eye.play();
+    }, 1000)
+    setTimeout(()=>{
+        bulb.play();
+    }, 3000)
+    setTimeout(()=>{
+        globe.play();
+    }, 7000)
+
+
 };
 
 export default startAnimations;
