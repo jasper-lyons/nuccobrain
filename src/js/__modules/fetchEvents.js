@@ -25,7 +25,10 @@ const processEvents = (json) => {
                 url: rawEvent.url,
                 date: startDate.format('Do MMM'),
                 startTime: startDate.format('ha'),
-                endTime: endDate.format('ha')
+                endTime: endDate.format('ha'),
+
+                desktopDays:startDate.format('D'),
+                desktopMonth: startDate.format('MMM')
             })
         })
         // Display only the most recent five
@@ -43,6 +46,10 @@ const displayEvents = (processedEvents) => {
     processedEvents.map((event)=>{
         eventsList.innerHTML += `
         <div class="event">
+            <aside class="event__desktop-date">
+                <span class="event__desktop-days">${event.desktopDays}</span>
+                <span class="event__desktop-month">${event.desktopMonth}</span>
+            </aside>
             <aside class="event__image-holder">
                 ${(event.image)? `<img class="event__image" alt="${event.name}" src="${event.image}"/>` : `` }
             </aside>
