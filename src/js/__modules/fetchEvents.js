@@ -58,7 +58,7 @@ const displayEvents = (processedEvents) => {
                 <p class="event__date">${event.date}</p>
                 <p class="event__time">${event.startTime}-${event.endTime}</p>
                 <p class="event__description">${event.description}</p>
-                <a class="btn btn--insights btn--padding" target="blank" href="${event.url}">Sign up here</a>
+                <a class="btn btn--insights btn--padding" target="blank" href="${event.url}?aff="website events page">Sign up here</a>
             </aside>
         </div>
     `
