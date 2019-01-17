@@ -4,11 +4,11 @@
 	&__media-item {		
 		img {
 			max-width: 100%;
-			margin: 10% auto;
+			// margin: 10% auto;
 			display: block;
 			
 			@include media('>=md') {
-				margin: 3% auto;
+				// margin: 3% auto;
 			}
 		}
 		
