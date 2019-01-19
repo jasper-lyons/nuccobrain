@@ -1,9 +1,12 @@
 import moment from 'moment'
 
+const host = (process.env.BACKEND_HOST)? process.env.BACKEND_HOST : 'http://localhost:9000'
+
 export default () => {
     // Only proceed if the element is in the DOM
     if(document.querySelector('.events-list')){
-        fetch('https://nuccobrain-staging.netlify.com/.netlify/functions/get-events')
+        // TODO: Turn this into an environment variable
+        fetch(`${host}/.netlify/functions/get-events`)
             .then(response=> response.json())
             .then(json=> processEvents(json))
             .catch(err=> handleError(err))

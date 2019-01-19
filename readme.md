@@ -26,13 +26,11 @@ Doing it this way lets us:
 * Get around the browser same-origin policy
 * Present smaller, simpler responses to the client
 
-Function source code is in `/src/functions` and the built code is in `/functions`.
+Function source code is in `/src/functions` and the built code ends up in `/functions`.
 
-Unlike for the front-end code, the built function code _is_ checked into the repo and normal start/build commands don't affect it.
+Like the front-end code, the built function code _is not_ checked into the repo and the normal build command will built the function code too.
 
-The functions can be rebuilt by running `netlify-lambda build src/functions`.
-
-The built function code is committed to the repo.
+The functions can be rebuilt separately by running `netlify-lambda build src/functions`.
 
 ### Important note
 

@@ -74,7 +74,7 @@
     "filepack": "gulp filepack",
     "webpack": "webpack",
     "webpack-prod": "webpack -p --optimize-minimize",
-    "dev": "gulp"
+    "dev": "gulp  && netlify-lambda serve src/functions"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
