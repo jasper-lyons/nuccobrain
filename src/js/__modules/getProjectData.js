@@ -49,14 +49,16 @@ const getProjectData = () => {
 	}
 
 	function fetchProject() {
+
 		const projectId = getProjectId(projectPath);
+		const host = (process.env.BACKEND_HOST)? process.env.BACKEND_HOST : "http://localhost:9000"
+
 		if (projectId) {
-			const apiKey = 'tVWGX5eAVwCM8qfDCaQfhiN2d1nrNvcN';
-			const url = `https://www.behance.net/v2/projects/${projectId}?api_key=${apiKey}`;
+			const url = `${host}/.netlify/functions/get-projects?projectid=${projectId}`;
 
 			$.ajax({
 				url,
-				dataType: 'jsonp',
+				dataType: 'json',
 			}).done((data) => {
 				showProject(data.project);
 			}).fail(() => {

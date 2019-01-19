@@ -111,7 +111,7 @@ const projectsGrid = () => {
 	const host = (process.env.BACKEND_HOST)? process.env.BACKEND_HOST : "http://localhost:9000"
 
 	const getCollection = (id) => $.ajax({
-		url: `${host}/.netlify/functions/get-projects?id=${id}`,
+		url: `${host}/.netlify/functions/get-projects?collectionid=${id}`,
 		dataType: 'json',
 	});
 
