@@ -67,10 +67,7 @@ const showProjectModal = () => {
 
 		if (projectId) {
 
-			const host = (process.env.BACKEND_HOST)? process.env.BACKEND_HOST : "http://localhost:9000"
-			const url = `${host}/.netlify/functions/get-projects?projectid=${projectId}`;
-
-			// const url = `https://www.behance.net/v2/projects/${projectId}?api_key=${apiKey}`;
+			const url = `/.netlify/functions/get-projects?projectid=${projectId}`;
 
 			$.ajax({
 				url,

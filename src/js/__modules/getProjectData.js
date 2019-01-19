@@ -51,10 +51,9 @@ const getProjectData = () => {
 	function fetchProject() {
 
 		const projectId = getProjectId(projectPath);
-		const host = (process.env.BACKEND_HOST)? process.env.BACKEND_HOST : "http://localhost:9000"
 
 		if (projectId) {
-			const url = `${host}/.netlify/functions/get-projects?projectid=${projectId}`;
+			const url = `/.netlify/functions/get-projects?projectid=${projectId}`;
 
 			$.ajax({
 				url,
