@@ -7,9 +7,12 @@ exports.handler = async (event, context, callback) => {
     const apiKey = process.env.EVENTBRITE_TOKEN
 
     // Get a soonest-first feed of a given organiser's events
-    const eventbriteFeed = `https://www.eventbriteapi.com/v3/users/me/events/?order_by=start_asc&time_filter=${(event.queryStringParameters.past)? "past" : "current_future"}&token=${apiKey}`
+    const eventbriteFeed = `https://www.eventbriteapi.com/v3/users/me/events/?order_by=${(event.queryStringParameters.past)? "start_desc" : "start_asc"}&time_filter=${(event.queryStringParameters.past)? "past" : "current_future"}&token=${apiKey}`
     const response = await fetch(eventbriteFeed)
     const data = await response.json()
+
+    // Only get the most recent five events
+    data.events.slice(0, 5)
 
     // This will store enriched event response
     let finalArray = []

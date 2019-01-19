@@ -1,20 +1,40 @@
 import moment from 'moment'
 
-
 export default () => {
-    // Only proceed if the element is in the DOM
+    // Initial page load
     if(document.querySelector('.events-list')){
-        // TODO: Turn this into an environment variable
-        fetch(`/.netlify/functions/get-events`)
-            .then(response=> response.json())
-            .then(json=> processEvents(json))
-            .catch(err=> handleError(err))
+        requestEventData(false)
     }
+    // Get all clickable event filter items
+    document.querySelectorAll('.events-menu__menu .menu-item').forEach((i)=>{
+        i.addEventListener('click', (e)=>{
+        
+            // Remove active class from all items first
+            document.querySelectorAll('.events-menu__menu .menu-item').forEach(j=>{
+                j.classList = "menu-item"
+            })
+            // And re-add to active item
+            i.classList.add("current-menu-item")
+            // And make the request
+            if(i.dataset.filter === "past"){
+                requestEventData(true)
+            } else {
+                requestEventData(false)
+            }
+
+        })
+    })
 }
 
-const processEvents = (json) => {
+const requestEventData = (past) => {
+    fetch(`https://nuccobrain-staging.netlify.com/.netlify/functions/get-events${(past)? "?past=1" : ""}`)
+        .then(response=> response.json())
+        .then(json=> processEvents(json, past))
+        .catch(err=> handleError(err))
+}
+
+const processEvents = (json, past) => {
     try {
-        console.log(json)
         // New empty array to store processed results
         let processedEvents = []
         json.map((rawEvent)=>{
@@ -28,19 +48,20 @@ const processEvents = (json) => {
                 date: startDate.format('Do MMM'),
                 startTime: startDate.format('ha'),
                 endTime: endDate.format('ha'),
+                venue: (rawEvent.venue)? rawEvent.venue : "",
 
                 desktopDays:startDate.format('D'),
                 desktopMonth: startDate.format('MMM')
             })
         })
-        // Display only the most recent five
-        return displayEvents(processedEvents.slice(0, 5))
+        // Display them
+        return displayEvents(processedEvents, past)
     } catch(e) {
         return handleError(e)
     }
 }
 
-const displayEvents = (processedEvents) => {
+const displayEvents = (processedEvents, past) => {
     const eventsList = document.querySelector('.events-list')
     // Clear out any existing content
     eventsList.innerHTML = ""
@@ -57,10 +78,10 @@ const displayEvents = (processedEvents) => {
             </aside>
             <aside class="event__text-holder">
                 <h2 class="event__name">${event.name}</h2>
-                <p class="event__date">${event.date}</p>
-                <p class="event__time">${event.startTime}-${event.endTime}</p>
+                <p class="event__venue">${event.venue}</p>
+                <p class="event__time"><span class="event__mobile-date">${event.date}, </span>${event.startTime}-${event.endTime}</p>
                 <p class="event__description">${event.description}</p>
-                <a class="btn btn--insights btn--padding" target="blank" href="${event.url}?aff="website events page">Sign up here</a>
+                <a class="btn btn--insights btn--padding" target="blank" href="${event.url}?aff="website events page">${(past)? "See details" : "Sign up here"}</a>
             </aside>
         </div>
     `

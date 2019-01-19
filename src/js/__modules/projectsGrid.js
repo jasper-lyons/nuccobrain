@@ -109,7 +109,7 @@ const projectsGrid = () => {
 	};
 
 	const getCollection = (id) => $.ajax({
-		url: `/.netlify/functions/get-projects?collectionid=${id}`,
+		url: `https://nuccobrain-staging.netlify.com/.netlify/functions/get-projects?collectionid=${id}`,
 		dataType: 'json',
 	});
 

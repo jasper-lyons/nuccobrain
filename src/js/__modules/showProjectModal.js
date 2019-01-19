@@ -67,7 +67,7 @@ const showProjectModal = () => {
 
 		if (projectId) {
 
-			const url = `/.netlify/functions/get-projects?projectid=${projectId}`;
+			const url = `https://nuccobrain-staging.netlify.com/.netlify/functions/get-projects?projectid=${projectId}`;
 
 			$.ajax({
 				url,
