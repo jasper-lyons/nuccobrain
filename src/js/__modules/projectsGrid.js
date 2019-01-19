@@ -108,10 +108,8 @@ const projectsGrid = () => {
 		gridSection.html('').addClass('section--error').append(info).slideDown('fast');
 	};
 
-	const host = (process.env.BACKEND_HOST)? process.env.BACKEND_HOST : "http://localhost:9000"
-
 	const getCollection = (id) => $.ajax({
-		url: `${host}/.netlify/functions/get-projects?collectionid=${id}`,
+		url: `/.netlify/functions/get-projects?collectionid=${id}`,
 		dataType: 'json',
 	});
 
