@@ -70,7 +70,7 @@
     "webpack-hot-middleware": "^2.22.2"
   },
   "scripts": {
-    "build": "gulp deploy --production",
+    "build": "gulp deploy --production && netlify-lambda build src/functions",
     "filepack": "gulp filepack",
     "webpack": "webpack",
     "webpack-prod": "webpack -p --optimize-minimize",
