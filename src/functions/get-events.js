@@ -2,16 +2,52 @@ import fetch from "node-fetch"
 
 exports.handler = async (event, context, callback) => {
 
-      // Get a soonest-first feed of a given organiser's events
-      const eventbriteFeed = `https://www.eventbriteapi.com/v3/users/me/events/?order_by=start_asc&time_filter=current_future&token=${process.env.EVENTBRITE_TOKEN}`
-      const response = await fetch(eventbriteFeed)
-      const data = await response.json()
-      return  {
-        statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*"
-        },
-        body: JSON.stringify(data.events)
+  try {
+
+    const apiKey = process.env.EVENTBRITE_TOKEN
+
+    // Get a soonest-first feed of a given organiser's events
+    const eventbriteFeed = `https://www.eventbriteapi.com/v3/users/me/events/?order_by=start_asc&time_filter=${(event.queryStringParameters.past)? "past" : "current_future"}&token=${apiKey}`
+    const response = await fetch(eventbriteFeed)
+    const data = await response.json()
+
+    // This will store enriched event response
+    let finalArray = []
+    data.events.forEach(event =>{
+       if(event.venue_id){
+        finalArray
+          .push(fetch(`https://www.eventbriteapi.com/v3/venues/${event.venue_id}?token=${apiKey}`)
+            .then(res=>res.json())
+            .then(data=>{
+              event.venue = data.name
+              return event
+            }))
+      } else {
+        finalArray.push(event)
       }
+    })
+    const resolvedFinalArray = await Promise.all(finalArray)
+
+    return  {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify(resolvedFinalArray)
+    }
+
+  } catch(e) {
+
+    console.log(e)
+    return  {
+      statusCode: 500,
+      headers: {
+          "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify({
+          message: e
+      })
+    }
+  }
 
 }
