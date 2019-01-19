@@ -12,11 +12,11 @@ exports.handler = async (event, context, callback) => {
     const data = await response.json()
 
     // Only get the most recent five events
-    data.events.slice(0, 5)
+    let events = data.events.slice(0, 5)
 
     // This will store enriched event response
     let finalArray = []
-    data.events.forEach(event =>{
+    events.forEach(event =>{
        if(event.venue_id){
         finalArray
           .push(fetch(`https://www.eventbriteapi.com/v3/venues/${event.venue_id}?token=${apiKey}`)
