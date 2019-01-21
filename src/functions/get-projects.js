@@ -1,7 +1,7 @@
 import fetch from "node-fetch"
 
 exports.handler = async (event, context, callback) => {
-    const apiKey = (process.env.BEHANCE_KEY)? process.env.BEHANCE_KEY : 'C0qP4HSwTz3pCyaFvfnXibnJoysOyT2D';
+    const apiKey = process.env.BEHANCE_KEY
 
     try {
 
