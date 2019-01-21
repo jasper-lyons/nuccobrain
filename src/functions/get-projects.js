@@ -13,8 +13,7 @@ exports.handler = async (event, context, callback) => {
             return  {
             statusCode: 200,
             headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Cache Control": "private, max-age=86400"
+                "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify(data)
             }
@@ -25,8 +24,7 @@ exports.handler = async (event, context, callback) => {
             return  {
             statusCode: 200,
             headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Cache Control": "private, max-age=86400"
+                "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify(data)
             }
