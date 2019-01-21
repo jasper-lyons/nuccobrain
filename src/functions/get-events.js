@@ -34,7 +34,8 @@ exports.handler = async (event, context, callback) => {
     return  {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=86400"
       },
       body: JSON.stringify(resolvedFinalArray)
     }
