@@ -27,7 +27,7 @@ export default () => {
 }
 
 const requestEventData = (past) => {
-    fetch(`https://nuccobrain-staging.netlify.com/.netlify/functions/get-events${(past)? "?past=1" : ""}`)
+    fetch(`https://nuccobrain-staging.netlify.com/.netlify/functions/fetch-events${(past)? "?past=1" : ""}`)
         .then(response=> response.json())
         .then(json=> processEvents(json, past))
         .catch(err=> handleError(err))

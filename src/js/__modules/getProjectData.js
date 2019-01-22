@@ -53,7 +53,7 @@ const getProjectData = () => {
 		const projectId = getProjectId(projectPath);
 
 		if (projectId) {
-			const url = `https://nuccobrain-staging.netlify.com/.netlify/functions/get-projects?projectid=${projectId}`;
+			const url = `https://nuccobrain-staging.netlify.com/.netlify/functions/fetch-projects?projectid=${projectId}`;
 
 			$.ajax({
 				url,
