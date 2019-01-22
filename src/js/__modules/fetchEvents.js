@@ -27,7 +27,7 @@ export default () => {
 }
 
 const requestEventData = (past) => {
-    fetch(`https://nuccobrain-staging.netlify.com/.netlify/functions/get-events${(past)? "?past=1" : ""}`)
+    fetch(`https://nuccobrain-staging.netlify.com/.netlify/functions/fetch-events${(past)? "?past=1" : ""}`)
         .then(response=> response.json())
         .then(json=> processEvents(json, past))
         .catch(err=> handleError(err))
@@ -81,7 +81,7 @@ const displayEvents = (processedEvents, past) => {
                 <p class="event__venue">${event.venue}</p>
                 <p class="event__time"><span class="event__mobile-date">${event.date}, </span>${event.startTime}-${event.endTime}</p>
                 <p class="event__description">${event.description}</p>
-                <a class="btn btn--insights btn--padding" target="blank" href="${event.url}?aff="website events page">${(past)? "See details" : "Sign up here"}</a>
+                <a class="btn btn--insights btn--padding" target="blank" href='${event.url}?aff="website events page"'>${(past)? "See details" : "Sign up here"}</a>
             </aside>
         </div>
     `
