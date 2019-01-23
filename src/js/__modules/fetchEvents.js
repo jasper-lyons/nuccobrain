@@ -81,7 +81,7 @@ const displayEvents = (processedEvents, past) => {
                 <p class="event__venue">${event.venue}</p>
                 <p class="event__time"><span class="event__mobile-date">${event.date}, </span>${event.startTime}-${event.endTime}</p>
                 <p class="event__description">${event.description}</p>
-                <a class="btn btn--insights btn--padding" target="blank" href='${event.url}?aff="website events page"'>${(past)? "See details" : "Sign up here"}</a>
+                <a class="btn btn--insights btn--padding" target="blank" href='${event.url}?aff=WebsiteEventsPage'>${(past)? "See details" : "Sign up here"}</a>
             </aside>
         </div>
     `
