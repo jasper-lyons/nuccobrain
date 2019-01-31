@@ -51,7 +51,8 @@ const processEvents = (json, past) => {
                 venue: (rawEvent.venue)? rawEvent.venue : "",
 
                 desktopDays:startDate.format('D'),
-                desktopMonth: startDate.format('MMM')
+                desktopMonth: startDate.format('MMM'),
+                desktopYear: startDate.format('Y')
             })
         })
         // Display them
@@ -72,6 +73,7 @@ const displayEvents = (processedEvents, past) => {
             <aside class="event__desktop-date">
                 <span class="event__desktop-days">${event.desktopDays}</span>
                 <span class="event__desktop-month">${event.desktopMonth}</span>
+                ${(past)? `<span class="event__desktop-year">${event.desktopYear}</span>` : ""}
             </aside>
             <aside class="event__image-holder">
                 ${(event.image)? `<img class="event__image" alt="${event.name}" src="${event.image}"/>` : `` }
