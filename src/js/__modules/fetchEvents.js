@@ -81,7 +81,7 @@ const displayEvents = (processedEvents, past) => {
             <aside class="event__text-holder">
                 <h2 class="event__name">${event.name}</h2>
                 <p class="event__venue">${event.venue}</p>
-                <p class="event__time"><span class="event__mobile-date">${event.date}, </span>${event.startTime}-${event.endTime}</p>
+                <p class="event__time"><span class="event__mobile-date">${event.date}${(past) ? " " + event.desktopYear : ""}, </span>${event.startTime}-${event.endTime}</p>
                 <p class="event__description">${event.description}</p>
                 <a class="btn btn--insights btn--padding" target="blank" href='${event.url}?aff=WebsiteEventsPage'>${(past)? "See details" : "Sign up here"}</a>
             </aside>
