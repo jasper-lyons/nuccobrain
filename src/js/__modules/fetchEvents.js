@@ -1,13 +1,22 @@
 import moment from 'moment'
 
+let loader
+
 export default () => {
     // Initial page load
     if(document.querySelector('.events-list')){
         requestEventData(false)
     }
+
+    // Get the loader
+    loader = document.querySelector('.events-loader')
+
     // Get all clickable event filter items
     document.querySelectorAll('.events-menu__menu .menu-item').forEach((i)=>{
         i.addEventListener('click', (e)=>{
+
+            // Show the loader
+            loader.style.display = ""
         
             // Remove active class from all items first
             document.querySelectorAll('.events-menu__menu .menu-item').forEach(j=>{
@@ -66,6 +75,8 @@ const displayEvents = (processedEvents, past) => {
     const eventsList = document.querySelector('.events-list')
     // Clear out any existing content
     eventsList.innerHTML = ""
+    // Goodbye loader
+    loader.style.display = "none"
     // Display each event
     processedEvents.map((event)=>{
         eventsList.innerHTML += `

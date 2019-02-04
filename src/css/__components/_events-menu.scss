@@ -1,4 +1,5 @@
 .events-menu{
+    position: relative;
     padding-top: 40px;
     @include media('>=md') {
         padding-top: 60px;
@@ -59,4 +60,13 @@
             font-size: 18px;
         }
     }
+}
+
+.events-loader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: invert(1);
+    opacity: 0.5;
 }
