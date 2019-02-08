@@ -1,18 +1,49 @@
 import moment from 'moment'
 
+let loader
+
 export default () => {
-    // Only proceed if the element is in the DOM
+    // Initial page load
     if(document.querySelector('.events-list')){
-        fetch('https://nuccobrain-staging.netlify.com/.netlify/functions/get-events')
-            .then(response=> response.json())
-            .then(json=> processEvents(json))
-            .catch(err=> handleError(err))
+        requestEventData(false)
     }
+
+    // Get the loader
+    loader = document.querySelector('.events-loader')
+
+    // Get all clickable event filter items
+    document.querySelectorAll('.events-menu__menu .menu-item').forEach((i)=>{
+        i.addEventListener('click', (e)=>{
+
+            // Show the loader
+            loader.style.display = ""
+        
+            // Remove active class from all items first
+            document.querySelectorAll('.events-menu__menu .menu-item').forEach(j=>{
+                j.classList = "menu-item"
+            })
+            // And re-add to active item
+            i.classList.add("current-menu-item")
+            // And make the request
+            if(i.dataset.filter === "past"){
+                requestEventData(true)
+            } else {
+                requestEventData(false)
+            }
+
+        })
+    })
 }
 
-const processEvents = (json) => {
+const requestEventData = (past) => {
+    fetch(`https://nuccobrain-staging.netlify.com/.netlify/functions/fetch-events${(past)? "?past=1" : ""}`)
+        .then(response=> response.json())
+        .then(json=> processEvents(json, past))
+        .catch(err=> handleError(err))
+}
+
+const processEvents = (json, past) => {
     try {
-        console.log(json)
         // New empty array to store processed results
         let processedEvents = []
         json.map((rawEvent)=>{
@@ -26,22 +57,26 @@ const processEvents = (json) => {
                 date: startDate.format('Do MMM'),
                 startTime: startDate.format('ha'),
                 endTime: endDate.format('ha'),
+                venue: (rawEvent.venue)? rawEvent.venue : "",
 
                 desktopDays:startDate.format('D'),
-                desktopMonth: startDate.format('MMM')
+                desktopMonth: startDate.format('MMM'),
+                desktopYear: startDate.format('Y')
             })
         })
-        // Display only the most recent five
-        return displayEvents(processedEvents.slice(0, 5))
+        // Display them
+        return displayEvents(processedEvents, past)
     } catch(e) {
         return handleError(e)
     }
 }
 
-const displayEvents = (processedEvents) => {
+const displayEvents = (processedEvents, past) => {
     const eventsList = document.querySelector('.events-list')
     // Clear out any existing content
     eventsList.innerHTML = ""
+    // Goodbye loader
+    loader.style.display = "none"
     // Display each event
     processedEvents.map((event)=>{
         eventsList.innerHTML += `
@@ -49,16 +84,17 @@ const displayEvents = (processedEvents) => {
             <aside class="event__desktop-date">
                 <span class="event__desktop-days">${event.desktopDays}</span>
                 <span class="event__desktop-month">${event.desktopMonth}</span>
+                ${(past)? `<span class="event__desktop-year">${event.desktopYear}</span>` : ""}
             </aside>
             <aside class="event__image-holder">
                 ${(event.image)? `<img class="event__image" alt="${event.name}" src="${event.image}"/>` : `` }
             </aside>
             <aside class="event__text-holder">
                 <h2 class="event__name">${event.name}</h2>
-                <p class="event__date">${event.date}</p>
-                <p class="event__time">${event.startTime}-${event.endTime}</p>
+                <p class="event__venue">${event.venue}</p>
+                <p class="event__time"><span class="event__mobile-date">${event.date}${(past) ? " " + event.desktopYear : ""}, </span>${event.startTime}-${event.endTime}</p>
                 <p class="event__description">${event.description}</p>
-                <a class="btn btn--insights btn--padding" target="blank" href="${event.url}">Sign up here</a>
+                <a class="btn btn--insights btn--padding" target="blank" href='${event.url}?aff=WebsiteEventsPage'>${(past)? "See details" : "Sign up here"}</a>
             </aside>
         </div>
     `

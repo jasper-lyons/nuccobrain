@@ -1,3 +1,6 @@
+# Don't save built function code
+/functions
+
 # No local configuration
 .env
 

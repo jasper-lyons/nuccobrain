@@ -14,7 +14,7 @@ import adjustments from './__modules/adjustments';
 import openVideoModal from './__modules/openVideoModal';
 import showItemsInit from './__modules/tabletInview';
 import startAnimations from './__modules/animations';
-import fetchEvents from './__modules/fetchEvents'
+import fetchEvents, {fetchFutureEvents, fetchPastEvents} from './__modules/fetchEvents'
 
 heroSection();
 

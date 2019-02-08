@@ -51,30 +51,37 @@
 
     .event__name{
         text-transform: uppercase;
-        font-size: 28px;
+        font-size: 24px;
         margin-bottom: 20px;
         letter-spacing: 1.8px;
     }
 
-    .event__date{
+    .event__venue{
         margin-bottom: 10px;
-        font-size: 1.2em;
-        font-weight: 600;
-        letter-spacing: 3px;
+
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+
+        
+        
+
+
         color: $lightBlue;
-        text-transform: uppercase
+        text-transform: uppercase;
     }
 
     .event__time{
         color: $lightBlue;
-        font-size: 1.2em;
+        font-size: 14px;
         margin-bottom: 15px;
         font-weight: 600;
     }
 
     .event__description{
+        font-size: 14px;
         margin-bottom: 20px;
-        line-height: 1.15;
+        line-height: 17px;
     }
 
 
@@ -89,19 +96,38 @@
             padding: 20px;
             font-weight: bold;
             color: $lightBlue;
-            font-size: 2em;
+            font-size: 36px;
             text-transform: uppercase;
             letter-spacing: 1.8px;
             font-weight: normal;
 
             .event__desktop-days{
                 display: block;
-                font-size: 1.5em;
+                font-size: 60px;
+            }
+            .event__desktop-month{
+                display: block;
+            }
+            .event__desktop-year{
+                display: block;
+                margin-top: 5px;
+                font-size: 0.7em;
+                opacity: 0.5;
             }
         }
 
-        .event__date{
+        .event__mobile-date{
             display: none;
+        }
+
+        .event__venue{
+            font-size: 18px;
+            letter-spacing: 3px;
+        }
+
+        .event__time{
+            font-size: 18px;
+            margin-bottom: 25px
         }
 
         .event__image-holder{
@@ -122,8 +148,10 @@
             margin-bottom: 25px;
         }
 
-        .event__time, .event__description{
-            margin-bottom: 25px
+        .event__description{
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 20px;
         }
 
         a {
@@ -131,7 +159,7 @@
         }
 
         .event__name{
-            font-size: 28px
+            font-size: 32px
         }
 
         .event__image{

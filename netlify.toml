@@ -1,3 +1,5 @@
 # Location of dist functions
 [build]
-  functions = "/functions"
+  functions = "/functions" # Where do built functions live
+  command = "npm run build" # What command to run to build 
+  publish = "web" # Where does dist code live

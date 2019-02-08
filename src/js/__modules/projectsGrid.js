@@ -108,22 +108,21 @@ const projectsGrid = () => {
 		gridSection.html('').addClass('section--error').append(info).slideDown('fast');
 	};
 
-	const getCollection = (apiKey, id) => $.ajax({
-		url: `https://www.behance.net/v2/collections/${id}/projects?api_key=${apiKey}`,
-		dataType: 'jsonp',
+	const getCollection = (id) => $.ajax({
+		url: `https://nuccobrain-staging.netlify.com/.netlify/functions/fetch-projects?collectionid=${id}`,
+		dataType: 'json',
 	});
 
 	const getCollections = () => {
-		const apiKey = 'tVWGX5eAVwCM8qfDCaQfhiN2d1nrNvcN';
 		const collectionId1 = '170029169';
 		const collectionId2 = '168432761';
 		const collectionId3 = '168437257';
 		const collectionId4 = '168437579';
 		$.when(
-			getCollection(apiKey, collectionId1),
-			getCollection(apiKey, collectionId2),
-			getCollection(apiKey, collectionId3),
-			getCollection(apiKey, collectionId4),
+			getCollection(collectionId1),
+			getCollection(collectionId2),
+			getCollection(collectionId3),
+			getCollection(collectionId4),
 		).then(showContent, handleError);
 	};
 
