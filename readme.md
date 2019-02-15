@@ -2,6 +2,8 @@
 
 A bespoke static site, built using a suite of gulp tasks.
 
+Note, this repository is for Nucco Brain's main website pages, which are a static site. Nucco Brain's blog pages are Wordpress based, and hosted on their web servers.
+
 ## Developing locally
 
 1. Install necessary dependencies with `npm install`
@@ -18,7 +20,7 @@ Serverless function code gets built to the `/functions` folder instead—see bel
 
 ## Serverless functions
 
-This project uses Netlify serverless cloud functions to proxy API requests to third party services like Eventbrite.
+This project uses Netlify serverless cloud functions to proxy API requests to third party services like Eventbrite and Behance.
 
 Doing it this way lets us:
 
