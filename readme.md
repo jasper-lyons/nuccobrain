@@ -15,6 +15,8 @@ Note, this repository is for Nucco Brain's main website pages, which are a stati
 Changes to the staging branch will automatically be built and deployed to a Netlify staging site: http://nuccobrain-staging.netlify.com.
 
 Changes to the master branch will be built and deployed to https://nuccobrain.com on request—not automatically.
+- For locally generating a production site, use `npm run build`.
+- The production files can be found in the /web folder
 
 Serverless function code gets built to the `/functions` folder instead—see below.
 
