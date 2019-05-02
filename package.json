@@ -78,6 +78,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "encoding": "^0.1.12",
     "flickity": "^2.1.2",
     "isotope-layout": "^3.0.6",
     "jquery": "^3.3.1",
